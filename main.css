@@ -28,10 +28,11 @@ body{
 .remaining-timer-circle{
     stroke: #3dc701;
     stroke-width: 8px;
-    stroke-dasharray: 251;
+    /* stroke-dasharray: 251; */
     stroke-dashoffset: 0;
     transform: rotateZ(-90deg);
     transform-origin: center;
+    transition: stroke-dasharray 1s linear;
 }
 
 @keyframes draw{
