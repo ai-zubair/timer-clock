@@ -9,23 +9,38 @@ body{
     align-items: center;
     justify-content: center;
 }
-.timerContainer{
+.timer-container{
     height: 200px;
     width: 200px;
     position: relative;
 }
 
-.timerSVGCircle{
+.timer-svg-circle{
     stroke: none;
     fill: none;
 }
 
-.timerCirclePath{
+.base-timer-circle{
     stroke: #dedede;
     stroke-width: 8px;
 }
 
-#timerLabel{
+.remaining-timer-circle{
+    stroke: #3dc701;
+    stroke-width: 8px;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 0;
+    transform: rotateZ(-90deg);
+    transform-origin: center;
+}
+
+@keyframes draw{
+    to{
+        stroke-dashoffset: 251;
+    }
+}
+
+#timer-label{
     position: absolute;
     top: 0;
     width: 100%;

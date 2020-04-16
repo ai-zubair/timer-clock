@@ -8,13 +8,14 @@
 </head>
 <body>
     <div id="app">
-        <div class="timerContainer">
-            <svg class="timerSVG" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <g class="timerSVGCircle">
-                <circle class="timerCirclePath" cx="50" cy="50" r="40" />
+        <div class="timer-container">
+            <svg class="timer-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <g class="timer-svg-circle">
+                <circle class="base-timer-circle" cx="50" cy="50" r="40" />
+                <circle id="remainingCircle" class="remaining-timer-circle" cx="50" cy="50" r="40"/>
               </g>
             </svg>
-            <span id="timerLabel">
+            <span id="timer-label">
               <!-- Remaining time label -->
             </span>
         </div>

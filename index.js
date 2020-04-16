@@ -1,6 +1,7 @@
-const timerLablel = document.getElementById('timerLabel');
+const timerLabel = document.getElementById('timer-label');
+const remainingTimerCircle = document.getElementById('remainingCircle');
 
-const TIME_LIMIT = 489;
+const TIME_LIMIT = 90;
 let passedTime = 0;
 let remainingTime = TIME_LIMIT;
 let timerInterval = null;
@@ -8,16 +9,25 @@ let timerInterval = null;
 startTimer();
 
 function startTimer(){
+    setUpTimerLabel(remainingTime);
     timerInterval = setInterval(()=>{
+        if(remainingTime===TIME_LIMIT)
+            animateRemainingCircle();
         passedTime += 1;
         remainingTime = TIME_LIMIT - passedTime;
         setUpTimerLabel(remainingTime);
+        if(remainingTime===0)
+            clearInterval(timerInterval);
     },1000)
+}
+
+function animateRemainingCircle(){
+    remainingTimerCircle.style.animation = `draw ${TIME_LIMIT}s linear forwards`;
 }
 
 function setUpTimerLabel(timestamp){
     const formattedTime = formatTime(timestamp);
-    timerLablel.innerHTML = `${formattedTime.min}:${formattedTime.sec}`
+    timerLabel.innerHTML = `${formattedTime.min}:${formattedTime.sec}`
 }
 
 function formatTime(timestamp){
